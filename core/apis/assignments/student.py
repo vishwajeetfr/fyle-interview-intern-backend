@@ -36,8 +36,7 @@ def upsert_assignment(p, incoming_payload):
 @decorators.authenticate_principal
 def submit_assignment(p, incoming_payload):
     """Submit an assignment"""
-    submit_assignment_payload = AssignmentSubmitSchema().load(incoming_payload)
-
+    submit_assignment_payload = AssignmentSubmitSchema().load(incoming_payload)    
     submitted_assignment = Assignment.submit(
         _id=submit_assignment_payload.id,
         teacher_id=submit_assignment_payload.teacher_id,
