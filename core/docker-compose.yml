@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: core/Dockerfile
+    ports:
+      - "4000:80"
+    volumes:
+      - ..:/app

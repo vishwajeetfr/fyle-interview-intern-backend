@@ -15,8 +15,6 @@ def list_assignments(p):
     principal_assignments = Assignment.get_graded_and_submitted_assignments()
     principal_assignments_dump = AssignmentSchema().dump(principal_assignments, many=True)
     return APIResponse.respond(data=principal_assignments_dump)
-
-
 @principal_assignments_resources.route('/teachers', methods=['GET'], strict_slashes=False)
 @decorators.authenticate_principal
 def list_teachers(p):
@@ -24,7 +22,6 @@ def list_teachers(p):
     principal_teachers = Teacher.get_teachers()
     principal_teachers_dump = AssignmentSchema().dump(principal_teachers, many=True)
     return APIResponse.respond(data=principal_teachers_dump)
-
 
 @principal_assignments_resources.route('/assignments/grade', methods=['POST'], strict_slashes=False)
 @decorators.accept_payload
